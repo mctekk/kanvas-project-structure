@@ -1,7 +1,7 @@
 "use client";
 
 import { Login } from "@kanvas/phoenix-rebirth/dist/views/login.mjs";
-import { app } from "@/kanvas/init";
+import { app } from "@/services/kanvas/init";
 import { toast } from "sonner";
 
 export default function SignIn() {
