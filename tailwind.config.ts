@@ -1,6 +1,7 @@
+import { createTailwindConfig } from "@kanvas/phoenix-rebirth/dist/config/tailwind";
 import type { Config } from "tailwindcss";
 
-const config: Config = {
+const config: Config = createTailwindConfig({
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -16,5 +17,6 @@ const config: Config = {
     },
   },
   plugins: [],
-};
+});
+
 export default config;
