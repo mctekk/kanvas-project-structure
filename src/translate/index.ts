@@ -19,14 +19,6 @@ interface TranslateOptions {
   defaultValue?: Message | undefined;
   interpolate?: Interpolate;
 }
-declare module "i18n-js" {
-  interface CustomTypeOptions {
-    defaultNS: "en";
-    resources: {
-      en: typeof en;
-    };
-  }
-}
 
 type En = typeof en;
 type Leaves<T> = T extends Array<infer U>
@@ -39,7 +31,14 @@ type Leaves<T> = T extends Array<infer U>
     }[keyof T]
   : never;
 
-export const translate = (
-  scope: Leaves<En> | (string & {}),
-  options?: TranslateOptions
-) => i18n.t(scope, { ...options, ...options?.interpolate } as any);
+export const translate = (scope: Leaves<En>, options?: TranslateOptions) =>
+  i18n.t(scope, { ...options, ...options?.interpolate } as any);
+declare module "i18n-js" {
+  // eslint-disable-next-line no-unused-vars
+  interface CustomTypeOptions {
+    defaultNS: "en";
+    resources: {
+      en: En;
+    };
+  }
+}
