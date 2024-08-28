@@ -18,6 +18,12 @@ export default function SignIn() {
       image={{
         src: "/images/login-bg.jpg",
       }}
+      card={{
+        logo: {
+          src: "/images/Kanvas_Logo_white.svg",
+          className: "bg-transparent",
+        },
+      }}
       onLogin={login}
       onError={(e) => {
         toast.error(e.message, {
